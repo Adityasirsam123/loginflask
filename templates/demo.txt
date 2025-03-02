@@ -1,0 +1,35 @@
+version: "3.8"
+
+services:
+  mysql:
+    build: ./db
+    container_name: mysql_container
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_DATABASE: Adilogin
+      MYSQL_USER: root
+      MYSQL_PASSWORD: admin
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  flask-app:
+    build: ./app
+    container_name: flask_container
+    restart: always
+    depends_on:
+      - mysql
+    ports:
+      - "5000:5000"
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_USER: root
+      MYSQL_PASSWORD: admin
+      MYSQL_DB: Adilogin
+    volumes:
+      - ./app:/app
+
+volumes:
+  mysql_data:

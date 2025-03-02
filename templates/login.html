@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+    <!-- Internal CSS -->
+    <style>
+        /* Global Styles */
+        body {
+            background: linear-gradient(to right, #4facfe, #00f2fe);
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* Container Box */
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            max-width: 400px;
+            width: 90%;
+        }
+
+        /* Header */
+        .header {
+            background-color: #236B8E;
+            padding: 15px;
+            border-radius: 10px;
+            color: #FFFFFF;
+            font-weight: bold;
+            font-size: 22px;
+        }
+
+        /* Input Fields */
+        .textbox {
+            width: 85%;
+            padding: 12px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 8px;
+            background: #ffffff;
+            font-size: 16px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Placeholder Text */
+        .textbox::placeholder {
+            color: #888;
+            font-weight: 500;
+        }
+
+        /* Button */
+        .btn {
+            background-color: #236B8E;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 10px;
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #1c5a72;
+        }
+
+        /* Register Redirect */
+        .bottom {
+            color: white;
+            font-size: 14px;
+        }
+
+        .bottom a {
+            color: #236B8E;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .bottom a:hover {
+            text-decoration: underline;
+        }
+
+        /* Error / Success Messages */
+        .msg {
+            font-size: 14px;
+            color: #ff3333;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Header -->
+        <div class="header">Login</div>
+
+        <br>
+
+        <form action="{{ url_for('login') }}" method="post">
+            <div class="msg">{{ msg }}</div>
+
+            <input id="username" name="username" type="text" placeholder="Enter Your Username" class="textbox" required><br>
+
+            <input id="password" name="password" type="password" placeholder="Enter Your Password" class="textbox" required><br>
+
+            <input type="submit" class="btn" value="Sign In">
+        </form>
+
+        <br>
+
+        <p class="bottom">Don't have an account? <a href="{{url_for('register')}}">Sign Up here</a></p>
+    </div>
+
+</body>
+</html>

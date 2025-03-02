@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AdiIndex</title>
+
+    <!-- Google Fonts for better typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+</head>
+<body style="
+    background: linear-gradient(to right, #4facfe, #00f2fe);
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+">
+
+    <div style="
+        text-align: center;
+        background: rgba(255, 255, 255, 0.2);
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+        backdrop-filter: blur(10px);
+        max-width: 400px;
+        width: 90%;
+    ">
+        <!-- Header Section -->
+        <div style="
+            background-color: #236B8E;
+            padding: 15px;
+            border-radius: 10px;
+            color: #FFFFFF;
+            font-weight: bold;
+            font-size: 22px;
+        ">
+            Index
+        </div>
+
+        <br>
+
+        <!-- Welcome Message -->
+        <h2 style="
+            color: white;
+            font-weight: 600;
+        ">
+            Hi {{ session.username }}!!
+        </h2>
+        <p style="
+            color: #f8f8f8;
+            font-size: 16px;
+        ">
+            Welcome to the index page...
+        </p>
+
+        <br>
+
+        <!-- Logout Button -->
+        <a href="{{ url_for('logout') }}" style="
+            background-color: #236B8E;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 10px;
+            display: inline-block;
+            transition: all 0.3s ease;
+        " 
+        onmouseover="this.style.backgroundColor='#1c5a72'"
+        onmouseout="this.style.backgroundColor='#236B8E'">
+            Logout
+        </a>
+    </div>
+
+</body>
+</html>
